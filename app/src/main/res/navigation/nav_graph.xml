@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/welcomeFragment">
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="hu.bme.aut.android.mysporttrackerapp.presentation.fragment.WelcomeFragment"
+        android:label="SetupFragment" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/runListFragment"
+        android:name="hu.bme.aut.android.mysporttrackerapp.presentation.fragment.RunListFragment"
+        android:label="RunFragment" >
+        <action
+            android:id="@+id/action_runFragment_to_mapviewFragment"
+            app:destination="@id/mapviewFragment" />
+        <action
+            android:id="@+id/action_runListFragment_to_runDetailsFragment"
+            app:destination="@id/runDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapviewFragment"
+        android:name="hu.bme.aut.android.mysporttrackerapp.presentation.fragment.MapViewFragment"
+        android:label="TrackingFragment" >
+        <action
+            android:id="@+id/action_mapviewFragment_to_runListFragment"
+            app:destination="@id/runListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/statisticsFragment"
+        android:name="hu.bme.aut.android.mysporttrackerapp.presentation.fragment.StatisticsFragment"
+        android:label="StatisticsFragment" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="hu.bme.aut.android.mysporttrackerapp.presentation.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_mapviewFragment"
+            app:destination="@id/mapviewFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_runListFragment"
+            app:destination="@id/runListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_statisticsFragment"
+            app:destination="@id/statisticsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/runDetailsFragment"
+        android:name="hu.bme.aut.android.mysporttrackerapp.presentation.fragment.RunDetailsFragment"
+        android:label="RunDetailsFragment" >
+        <argument
+            android:name="sportEntityArgs"
+            app:argType="hu.bme.aut.android.mysporttrackerapp.model.SportEntity" />
+    </fragment>
+</navigation>
